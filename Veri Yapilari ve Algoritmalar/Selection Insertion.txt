@@ -1,0 +1,35 @@
+Proje 1
+[22,27,16,2,18,6] -> Selection Sort
+
+1 - Yukari verilen dizinin sort turune gore asamalarini yaziniz.
+[22,27,16,2,18,6] ->En kucuk sayi bulunur.
+[2,27,16,22,18,6] ->Ilk siraya yazilir.
+[2,27,16,22,18,6]->Sonraki en kucuk sayi bulunur.
+[2,6,16,22,18,27]->Sonraki siraya yazilir.
+[2,6,16,22,18,27]->Sirada oldugu icin sonraki kontrole gecilir.
+[2,6,16,22,18,27]->Sonraki en kucuk sayi bulunur.
+[2,6,16,18,22,27]->Sonraki siraya yazilir.
+[2,6,16,18,22,27]->Sonraki en kucuk sayi bulunur.
+[2,6,16,18,22,27]->Sirada oldugu icin sonraki kontrole gecilir.
+[2,6,16,18,22,27]->Sonraki en kucuk sayi bulunur.
+[2,6,16,18,22,27]->Sirada oldugu icin sonraki kontrole gecilir.
+Dizi tamamlandigi icin dongu sona erer.
+
+2 - Big-O gosterimini yaziniz.
+O(n^2)
+
+3 - Time Complexity: Average case: Aradi�imiz sayinin ortada olmasi,Worst case: Aradi�imiz sayinin sonda olmasi, Best case: Aradi�imiz sayinin dizinin en basinda olmasi.
+Best Case: O(n^2)
+Average Case: O(n^2)
+Worst Case: O(n^2)
+
+4 - Dizi siralandiktan sonra 18 sayisi hangi case kapsamina girer? Yaziniz.
+"Average Case"
+
+5 - [7,3,5,8,2,9,4,15,6] dizisinin Insertion Sort'a gore ilk 4 adimini yaziniz.
+[7,3,5,8,2,9,4,15,6]
+[3,7,5,8,2,9,4,15,6]
+[3,5,7,8,2,9,4,15,6]
+[3,5,7,8,2,9,4,15,6]
+[2,3,5,7,8,9,4,15,6]
+
