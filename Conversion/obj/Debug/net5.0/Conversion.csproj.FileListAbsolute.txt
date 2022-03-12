@@ -1,0 +1,16 @@
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/Conversion.csproj.AssemblyReference.cache
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/Conversion.GeneratedMSBuildEditorConfig.editorconfig
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/Conversion.AssemblyInfoInputs.cache
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/Conversion.AssemblyInfo.cs
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/Conversion.csproj.CoreCompileInputs.cache
+/home/gokhan/Documents/Patika.Dev/Conversion/bin/Debug/net5.0/Conversion
+/home/gokhan/Documents/Patika.Dev/Conversion/bin/Debug/net5.0/Conversion.deps.json
+/home/gokhan/Documents/Patika.Dev/Conversion/bin/Debug/net5.0/Conversion.runtimeconfig.json
+/home/gokhan/Documents/Patika.Dev/Conversion/bin/Debug/net5.0/Conversion.runtimeconfig.dev.json
+/home/gokhan/Documents/Patika.Dev/Conversion/bin/Debug/net5.0/Conversion.dll
+/home/gokhan/Documents/Patika.Dev/Conversion/bin/Debug/net5.0/ref/Conversion.dll
+/home/gokhan/Documents/Patika.Dev/Conversion/bin/Debug/net5.0/Conversion.pdb
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/Conversion.dll
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/ref/Conversion.dll
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/Conversion.pdb
+/home/gokhan/Documents/Patika.Dev/Conversion/obj/Debug/net5.0/Conversion.genruntimeconfig.cache
