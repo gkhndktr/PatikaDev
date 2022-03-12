@@ -1,0 +1,16 @@
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/bin/Debug/net5.0/ErrorCatch
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/bin/Debug/net5.0/ErrorCatch.deps.json
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/bin/Debug/net5.0/ErrorCatch.runtimeconfig.json
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/bin/Debug/net5.0/ErrorCatch.runtimeconfig.dev.json
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/bin/Debug/net5.0/ErrorCatch.dll
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/bin/Debug/net5.0/ref/ErrorCatch.dll
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/bin/Debug/net5.0/ErrorCatch.pdb
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ErrorCatch.csproj.AssemblyReference.cache
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ErrorCatch.GeneratedMSBuildEditorConfig.editorconfig
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ErrorCatch.AssemblyInfoInputs.cache
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ErrorCatch.AssemblyInfo.cs
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ErrorCatch.csproj.CoreCompileInputs.cache
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ErrorCatch.dll
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ref/ErrorCatch.dll
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ErrorCatch.pdb
+/home/gokhan/Documents/Patika.Dev/ErrorCatch/obj/Debug/net5.0/ErrorCatch.genruntimeconfig.cache
