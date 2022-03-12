@@ -32,15 +32,15 @@ namespace Conversion
             Console.WriteLine("**** Explicit conversion*****");
             int x = 4;
             byte y = (byte)x;
-            Console.WriteLine("y: " + y );
+            Console.WriteLine("y: " + y);
 
             int z = 100;
             byte t = (byte)z;
-            Console.WriteLine("t: " + t );
+            Console.WriteLine("t: " + t);
 
             float w = 10.3f;
             byte v = (byte)w;
-            Console.WriteLine("v: " + v );
+            Console.WriteLine("v: " + v);
 
             // *****Tostring Methodu *****
             Console.WriteLine("*****Tostring Methodu *****");
@@ -49,14 +49,14 @@ namespace Conversion
             Console.WriteLine("yy: " + yy);
 
             string zz = 12.5f.ToString();
-            Console.WriteLine("zz: " + zz);           
+            Console.WriteLine("zz: " + zz);
 
 
             //System.convert
             Console.WriteLine("*****System.convert sınıfı *****");
 
             string s1 = "10", s2 = "20";
-            
+
             int sayi1, sayi2;
             int toplam;
 
@@ -88,7 +88,7 @@ namespace Conversion
             Console.WriteLine("rakam1: " + rakam1);
             Console.WriteLine("double1: " + double1);
         }
-        
+
 
     }
 }
