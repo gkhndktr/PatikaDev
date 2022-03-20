@@ -15,10 +15,10 @@ namespace Datetime
             Console.WriteLine(DateTime.Now.Minute);
             Console.WriteLine(DateTime.Now.DayOfWeek);
             Console.WriteLine(DateTime.Now.DayOfYear);
-            Console.WriteLine(DateTime.Now.ToLongDateString);
-            Console.WriteLine(DateTime.Now.ToShortDateString);
-            Console.WriteLine(DateTime.Now.ToLongTimeString);
-            Console.WriteLine(DateTime.Now.ToShortTimeString);
+            Console.WriteLine(DateTime.Now.ToLongDateString());
+            Console.WriteLine(DateTime.Now.ToShortDateString());
+            Console.WriteLine(DateTime.Now.ToLongTimeString());
+            Console.WriteLine(DateTime.Now.ToShortTimeString());
             Console.WriteLine(DateTime.Now.AddDays(2));
             Console.WriteLine(DateTime.Now.AddHours(2));
             Console.WriteLine(DateTime.Now.AddSeconds(2));
@@ -53,13 +53,13 @@ namespace Datetime
             Console.WriteLine(Math.Floor(22.7));//22
 
             Console.WriteLine(Math.Max(2,6));
-            Console.WriteLine(Math.Min(2.6));
+            Console.WriteLine(Math.Min(2,6));
 
             Console.WriteLine(Math.Pow(3,4)); //3 ^4
             Console.WriteLine(Math.Sqrt(9)); // Karekök
             Console.WriteLine(Math.Log(9));
             Console.WriteLine(Math.Exp(3));// e üzeri...
-            Console.WriteLine(Math.Log10);
+            Console.WriteLine(Math.Log10(10));
 
         }
     }

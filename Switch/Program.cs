@@ -6,7 +6,7 @@ namespace Switch
     {
         static void Main(string[] args)
         {
-            int month = DateTime.Now.Month;
+                        int month = DateTime.Now.Month;
 
             switch (month)
             {

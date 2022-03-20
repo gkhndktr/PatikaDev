@@ -17,7 +17,7 @@ namespace Soru_1
             ArrayList primeNumbers = new ArrayList();
             ArrayList NonPrimeNumbers = new ArrayList();
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 20; i++)
             {
                 uint number;
                 Console.WriteLine("Kindly provide a positive integer value");
