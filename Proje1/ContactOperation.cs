@@ -7,11 +7,13 @@ namespace Proje1
     {
         public static void Menu()
         {
-            Console.WriteLine("(1) Yeni Numara Kaydetmek");
-            Console.WriteLine("(2) Varolan Numarayı Silmek");
-            Console.WriteLine("(3) Varolan Numarayı Güncelleme");
-            Console.WriteLine("(4) Rehberi Listelemek");
-            Console.WriteLine("(5) Rehberde Arama Yapmak");
+            Console.WriteLine();
+            Console.WriteLine("Lütfen devam etmek için seçiminizi yapınız!");
+            Console.WriteLine("(1) Yeni Numara Kaydet");
+            Console.WriteLine("(2) Varolan Numarayı Sil");
+            Console.WriteLine("(3) Varolan Numarayı Güncelle");
+            Console.WriteLine("(4) Rehberi Listele");
+            Console.WriteLine("(5) Rehberde Arama Yap");
             Console.WriteLine("(6) Uygulamadan Çıkış Yap");
             Console.WriteLine("****************");
         }
@@ -19,14 +21,16 @@ namespace Proje1
         {
             Contact contact = new Contact();
             ContactModel.contactList.Add(contact);
-            Menu();
+            Program.StartApplication();
         }
         public static void Delete()
         {
             Console.WriteLine("Lütfen numarasını silmek istediğiniz kişinin adını ya da soyadını giriniz:");
             string check = Console.ReadLine();
-            foreach(var contact in ContactModel.contactList)
+
+            for(int i = 0 ; i < ContactModel.contactList.Count ; i ++)
             {
+                var contact = ContactModel.contactList[i];
                 if(contact.Name == check || contact.Surname == check)
                 {
                     Console.WriteLine("{0} isimli kişi rehberden silinmek üzere, onaylıyor musunuz ?(y/n)", contact.Name);
@@ -35,18 +39,18 @@ namespace Proje1
                     {
                      ContactModel.contactList.Remove(contact);
                      Console.WriteLine("Kişi silinmiştir!");
-                     Menu();
+                     Program.StartApplication();
                      break;
                     }
                     else
                     {
-                        Console.WriteLine("Program sonlandırılmıştır.");
-                        Menu();
+                        Console.WriteLine("Silme işlemi iptal edilmiştir!");
+                        Program.StartApplication();
                         break;
                     }
                     
                 }
-                else
+                else if(i == ContactModel.contactList.Count -1)
                 {
                     Console.WriteLine("Aradığınız krtiterlere uygun veri rehberde bulunamadı. Lütfen bir seçim yapınız.");
                     Console.WriteLine("* Silmeyi sonlandırmak için : (1)");
@@ -54,14 +58,14 @@ namespace Proje1
                     string decision = Console.ReadLine();
                     if(decision == "1")
                     {
-                        Console.WriteLine("Program sonlandırılmıştır.");
-                        Menu();
+                        Console.WriteLine("Silme işlemi iptal edilmiştir!");
+                        Program.StartApplication();
                         break;
                     }
                     else
                     {
                         Console.WriteLine("Tekrar deneyiniz!");
-                        Menu();
+                        ContactOperation.Delete();
                         break;
                     }
                 }
@@ -71,31 +75,32 @@ namespace Proje1
         public static void Update()
         {
             Console.WriteLine(" Lütfen numarasını güncellemek istediğiniz kişinin adını ya da soyadını giriniz:");
-            string cName = Console.ReadLine();
-            foreach(var uName in ContactModel.contactList)
+            string check = Console.ReadLine();
+            for(int i = 0 ; i < ContactModel.contactList.Count ; i ++)
             {
-                if(uName.Name == cName || uName.Surname == cName)
+                var contact = ContactModel.contactList[i];
+                if(contact.Name == check || contact.Surname == check)
                 {
                     Console.WriteLine(" Lütfen güncellemek istediğiniz numarayı giriniz:");
                     string newNumber = Console.ReadLine();
-                    Console.WriteLine("{0} isimli kişinin güncellenmesini onaylıyor musunuz ?(y/n)", uName.Name);
+                    Console.WriteLine("{0} isimli kişinin güncellenmesini onaylıyor musunuz ?(y/n)", contact.Name);
                     string uconfirmation = Console.ReadLine();
                     if(uconfirmation == "y")
                     {
-                         uName.Number = newNumber;
+                         contact.Number = newNumber;
                          Console.WriteLine("Kişi güncellenmiştir!");
-                         Menu();
+                         Program.StartApplication();
                          break;
                     }
                     else
                     {
                         Console.WriteLine("Program sonlandırılmıştır.");
-                        Menu();
+                        Program.StartApplication();
                         break;
                     }
                     
                 }
-                else
+                else if(i == ContactModel.contactList.Count -1)
                 {
                     Console.WriteLine("Aradığınız krtiterlere uygun veri rehberde bulunamadı. Lütfen bir seçim yapınız.");
                     Console.WriteLine("* Güncellemeyi  sonlandırmak için : (1)");
@@ -104,13 +109,13 @@ namespace Proje1
                     if(uDecision == "1")
                     {
                         Console.WriteLine("Program sonlandırılmıştır.");
-                        Menu();
+                        Program.StartApplication();
                         break;
                     }
                     else
                     {
                         Console.WriteLine("Tekrar deneyiniz!");
-                        Menu();
+                        Update();
                         break;
                     }
                 }
@@ -120,11 +125,11 @@ namespace Proje1
         public static void Listing()
         {
             Console.WriteLine("Telefon Rehberi");
-            foreach(var item in ContactModel.contactList)
+            foreach(var contact in ContactModel.contactList)
             {
-                item.Yazdır();
+                contact.Yazdır();
             }
-            Menu();
+            Program.StartApplication();
         }
         public static void Search()
         {
@@ -157,24 +162,9 @@ namespace Proje1
                     }
                 }
             }
+            Program.StartApplication();
+        }
 
-            Menu();
-        }
-        public static void WhatNext()
-        {
-            Console.WriteLine("(1) Yeni bir işlem yap");
-            Console.WriteLine("(2) Uygulamadan Çık");
-            Console.WriteLine("****************");
-            string uDecision = Console.ReadLine();
-            if(uDecision == "1")
-            {
-                Program.StartApplication();
-            }
-            else
-            {
-                Exit();
-            }
-        }
         public static void Exit()
         {
             System.Environment.Exit(0);
