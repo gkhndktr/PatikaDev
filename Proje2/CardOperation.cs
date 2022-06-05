@@ -6,7 +6,62 @@ namespace Proje2
     {
         public static void Listing()
         {
-            
+            Console.WriteLine(" TODO Line");
+            Console.WriteLine("************************");
+            if(Board.ToDoList.Count > 0)
+            {
+                foreach(var card in Board.ToDoList)
+                {
+                    Console.WriteLine(card.Header);
+                    Console.WriteLine(card.Content);
+                    Console.WriteLine(card.Member);
+                    Console.WriteLine(card.Size);
+                    Console.WriteLine("-");
+                }
+            }
+            else
+            {
+                Console.WriteLine("BOŞ");
+                Console.WriteLine();
+            }
+
+            Console.WriteLine(" IN PROGRESS Line");
+            Console.WriteLine("************************");
+            if(Board.InProgressList.Count > 0)
+            {
+                foreach(var card in Board.InProgressList)
+                {
+                    Console.WriteLine(card.Header);
+                    Console.WriteLine(card.Content);
+                    Console.WriteLine(card.Member);
+                    Console.WriteLine(card.Size);
+                    Console.WriteLine("-");
+                }
+            }
+            else
+            {
+                Console.WriteLine("BOŞ");
+                Console.WriteLine();
+            }
+            Console.WriteLine("DONE Line");
+            Console.WriteLine("************************");
+            if(Board.DoneList.Count > 0)
+            {
+                foreach(var card in Board.DoneList)
+                {
+                    Console.WriteLine(card.Header);
+                    Console.WriteLine(card.Content);
+                    Console.WriteLine(card.Member);
+                    Console.WriteLine(card.Size);
+                    Console.WriteLine("-");
+                }
+            }
+            else
+            {
+                Console.WriteLine("BOŞ");
+                Console.WriteLine();
+            }
+
         }
         public static void AddCard()
         {
