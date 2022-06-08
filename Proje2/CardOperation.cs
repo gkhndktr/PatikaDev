@@ -8,9 +8,9 @@ namespace Proje2
         {
             Console.WriteLine(" TODO Line");
             Console.WriteLine("************************");
-            if(Board.ToDoList.Count > 0)
+            if (Board.ToDoList.Count > 0)
             {
-                foreach(var card in Board.ToDoList)
+                foreach (var card in Board.ToDoList)
                 {
                     Console.WriteLine(card.Header);
                     Console.WriteLine(card.Content);
@@ -27,9 +27,9 @@ namespace Proje2
 
             Console.WriteLine(" IN PROGRESS Line");
             Console.WriteLine("************************");
-            if(Board.InProgressList.Count > 0)
+            if (Board.InProgressList.Count > 0)
             {
-                foreach(var card in Board.InProgressList)
+                foreach (var card in Board.InProgressList)
                 {
                     Console.WriteLine(card.Header);
                     Console.WriteLine(card.Content);
@@ -45,9 +45,9 @@ namespace Proje2
             }
             Console.WriteLine("DONE Line");
             Console.WriteLine("************************");
-            if(Board.DoneList.Count > 0)
+            if (Board.DoneList.Count > 0)
             {
-                foreach(var card in Board.DoneList)
+                foreach (var card in Board.DoneList)
                 {
                     Console.WriteLine(card.Header);
                     Console.WriteLine(card.Content);
@@ -61,7 +61,7 @@ namespace Proje2
                 Console.WriteLine("BOŞ");
                 Console.WriteLine();
             }
-
+            Program.StartApplication();
         }
         public static void AddCard()
         {
@@ -71,18 +71,71 @@ namespace Proje2
             Console.WriteLine("Please enter contents");
             string contents = Console.ReadLine();
 
-            Console.WriteLine("Please enter person name");
-            string name = Console.ReadLine();
-            
+            Console.WriteLine("Please enter member ID");
+            int memberId = Int32.Parse(Console.ReadLine());
+
             Console.WriteLine("Plese enter size of the card");
-            string size = Console.ReadLine();
-            
-            Card newCard =new Card(header, contents, name, size);
+            int size = Int32.Parse(Console.ReadLine());
+
+            Card newCard = new Card(header, contents, memberId, size);
             Console.WriteLine(newCard);
 
             Board.ToDoList.Add(newCard);
+
+            Program.StartApplication();
+        }
+        public static void Delete()
+        {
+            Console.WriteLine("Please provide card header for delete transaction!");
+
+            string header = Console.ReadLine();
+            bool found = false;
+            foreach(var card in Board.ToDoList.ToArray())
+            {
+                if(card.Header == header)
+                {
+                    Board.ToDoList.Remove(card);
+                    found = true;
+                    Console.WriteLine("Card with header {0} is successfully deleted", header);
+                }
+            }
+            foreach(var card in Board.InProgressList.ToArray())
+            {
+                if(card.Header == header)
+                {
+                    Board.ToDoList.Remove(card);
+                    found = true;
+                    Console.WriteLine("Card with header {0} is successfully deleted", header);
+                }
+            }
+            foreach(var card in Board.DoneList.ToArray())
+            {
+                if(card.Header == header)
+                {
+                    Board.ToDoList.Remove(card);
+                    found = true;
+                    Console.WriteLine("Card with header {0} is successfully deleted", header);
+                }
+            }
+            
+            if(!found)
+            {
+                Console.WriteLine("No result is found with the provided header! Please select an option to continue.");
+                Console.WriteLine("1- Abort delete progress");
+                Console.WriteLine("2- Try again");
+                string choice = Console.ReadLine();
+                if(choice == "1")
+                {
+                    Program.StartApplication();
+                }
+                else
+                {
+                    Delete();
+                }
+            }
+
         }
 
-        
+
     }
 }

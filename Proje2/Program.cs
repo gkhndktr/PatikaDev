@@ -1,24 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+
 namespace Proje2
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
-            Dictionary<string, string> TeamMembers = new Dictionary<string, string>();
+            Member firstMember = new Member("Gökhan", "Döktür", 1);
+            Member secondMember = new Member("Deniz", "Döktür", 2);
+            Member thirdMember = new Member("Derya", "Döktür", 3);
 
-            TeamMembers.Add("Gökhan", "1");
-            TeamMembers.Add("Deniz", "2");
-            TeamMembers.Add("Derya", "3");
+            MemberModel.distribution.Add(firstMember);
+            MemberModel.distribution.Add(secondMember);
+            MemberModel.distribution.Add(thirdMember);
 
-            Card firstCard =new Card("Programming Language", "Learn C#", "Gökhan", "1");
-            Card secondCard =new Card("Programming Language", "Learn C#", "Deniz", "1");
-            Card thirdCard =new Card("Programming Language", "Learn C#", "Derya", "1");
+            Card firstCard = new Card("Programming Language", "Learn C#", 1, 1);
+            Card secondCard = new Card("Programming Language", "Learn C#", 2, 1);
+            Card thirdCard = new Card("Programming Language", "Learn C#", 3, 1);
 
             Board.ToDoList.Add(firstCard);
             Board.ToDoList.Add(secondCard);
             Board.ToDoList.Add(thirdCard);
+            
+            StartApplication();
+        }
+
+        public static void StartApplication()
+        {
+
 
             Console.WriteLine("Please choose one of below options to continue:)");
             Console.WriteLine("  *******************************************");
@@ -32,7 +43,7 @@ namespace Proje2
             Console.WriteLine(option);
 
 
-            switch(option)
+            switch (option)
             {
                 case "1":
                     CardOperation.Listing();
@@ -41,7 +52,7 @@ namespace Proje2
                     CardOperation.AddCard();
                     break;
                 case "3":
-                    //CardOperation.Delete();
+                    CardOperation.Delete();
                     break;
                 case "4":
                     //CardOperation.Move();
@@ -49,4 +60,6 @@ namespace Proje2
             }
         }
     }
+
+
 }

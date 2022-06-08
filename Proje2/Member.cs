@@ -13,11 +13,11 @@ namespace Proje2
         public string LastName { get => lastName; set => lastName = value; }
         public int Id { get => id; set => id = value; }
         public Member(string firstname, string lastname, int id)
-         {
-            this.FirstName =firstName;
+        {
+            this.FirstName = firstName;
             this.LastName = lastName;
             this.Id = id;
-         }
+        }
 
 
 

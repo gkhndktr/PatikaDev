@@ -2,38 +2,68 @@ using System;
 
 namespace Proje2
 {
-    class Card
+
+    public class Card
     {
-        
+
         private string header;
         private string content;
-        private string member;
-        private string size;
+        private int member;
+        private SizeEnum size;
 
-        public string Header{
-            get{return this.header;}
-            set{this.header = value;}
+        public string Header
+        {
+            get { return this.header; }
+            set { this.header = value; }
         }
-        public string Content{
-            get{return this.content;}
-            set{this.content = value;}
+        public string Content
+        {
+            get { return this.content; }
+            set { this.content = value; }
         }
-        public string Member{
-            get{return this.member;}
-            set{this.member = value;}
+        public int Member
+        {
+            get { return this.member; }
+            set
+            {
+                var list = MemberModel.distribution;
+                int totalCount = list.Count;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Id == value)
+                    {
+                        this.member = value;
+                        break;
+                    }
+                    else if (i == totalCount - 1)
+                    {
+                        Console.WriteLine("You have provided invalid user information. Please try again!");
+                    }
+                }
+
+            }
         }
-        public string Size{
-            get{return this.size;}
-            set{this.size = value;}
+        public SizeEnum Size
+        {
+            get { return this.size; }
+            set { this.size = value; }
         }
 
-        public Card(string header, string content, string member, string size)
+        public Card(string header, string content, int member, int size)
         {
             this.Header = header;
             this.Content = content;
             this.Member = member;
-            this.Size = size;
+            this.Size = (SizeEnum)size;
 
+        }
+        public enum SizeEnum
+        {
+            XS,
+            S,
+            M,
+            L,
+            XL
         }
     }
 }
