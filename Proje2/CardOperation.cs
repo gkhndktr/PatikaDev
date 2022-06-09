@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 namespace Proje2
 {
     public class CardOperation
@@ -90,41 +90,41 @@ namespace Proje2
 
             string header = Console.ReadLine();
             bool found = false;
-            foreach(var card in Board.ToDoList.ToArray())
+            foreach (var card in Board.ToDoList.ToArray())
             {
-                if(card.Header == header)
+                if (card.Header == header)
                 {
                     Board.ToDoList.Remove(card);
                     found = true;
                     Console.WriteLine("Card with header {0} is successfully deleted", header);
                 }
             }
-            foreach(var card in Board.InProgressList.ToArray())
+            foreach (var card in Board.InProgressList.ToArray())
             {
-                if(card.Header == header)
+                if (card.Header == header)
                 {
                     Board.ToDoList.Remove(card);
                     found = true;
                     Console.WriteLine("Card with header {0} is successfully deleted", header);
                 }
             }
-            foreach(var card in Board.DoneList.ToArray())
+            foreach (var card in Board.DoneList.ToArray())
             {
-                if(card.Header == header)
+                if (card.Header == header)
                 {
                     Board.ToDoList.Remove(card);
                     found = true;
                     Console.WriteLine("Card with header {0} is successfully deleted", header);
                 }
             }
-            
-            if(!found)
+
+            if (!found)
             {
                 Console.WriteLine("No result is found with the provided header! Please select an option to continue.");
                 Console.WriteLine("1- Abort delete progress");
                 Console.WriteLine("2- Try again");
                 string choice = Console.ReadLine();
-                if(choice == "1")
+                if (choice == "1")
                 {
                     Program.StartApplication();
                 }
@@ -133,9 +133,140 @@ namespace Proje2
                     Delete();
                 }
             }
-
+            Program.StartApplication();
         }
 
+        public static void Move()
+        {
+            Console.WriteLine("Please provide card header to move!");
 
+            string header = Console.ReadLine();
+            bool found = false;
+            foreach (var card in Board.ToDoList.ToArray())
+            {
+                if (card.Header == header)
+                {
+                    found = true;
+                    PrintCard(card);
+                    Console.WriteLine("Line        : To Do");
+                    Console.WriteLine("Kindly provide a line to move the card!");
+                    Console.WriteLine("1- In Progress");
+                    Console.WriteLine("2- Done");
+                    string choice = Console.ReadLine();
+                    if (choice == "1")
+                    {
+                        Board.InProgressList.Add(card);
+                        Board.ToDoList.Remove(card);
+                        Console.WriteLine("You have successfully moved card to In Progress List");
+                    }
+                    else if (choice == "2")
+                    {
+                        Board.DoneList.Add(card);
+                        Board.ToDoList.Remove(card);
+                        Console.WriteLine("You have successfully moved card to Done List");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You have performed an incorrect operation.");
+                        Program.StartApplication();
+                    }
+                    break;
+                }
+            }
+            if (!found)
+            {
+                foreach (var card in Board.InProgressList.ToArray())
+                {
+                    if (card.Header == header)
+                    {
+                        found = true;
+                        PrintCard(card);
+                        Console.WriteLine("Line        : To Do");
+                        Console.WriteLine("Kindly provide a line to move the card!");
+                        Console.WriteLine("1- To Do");
+                        Console.WriteLine("2- Done");
+                        string choice = Console.ReadLine();
+                        if (choice == "1")
+                        {
+                            Board.ToDoList.Add(card);
+                            Board.InProgressList.Remove(card);
+                            Console.WriteLine("You have successfully moved card to To Do List");
+                        }
+                        else if (choice == "2")
+                        {
+                            Board.DoneList.Add(card);
+                            Board.InProgressList.Remove(card);
+                            Console.WriteLine("You have successfully moved card to Done List");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have performed an incorrect operation.");
+                            Program.StartApplication();
+                        }
+                        break;
+                    }
+                }
+            }
+            if (!found)
+            {
+                foreach (var card in Board.DoneList.ToArray())
+                {
+                    if (card.Header == header)
+                    {
+                        found = true;
+                        PrintCard(card);
+                        Console.WriteLine("Line        : To Do");
+                        Console.WriteLine("Kindly provide a line to move the card!");
+                        Console.WriteLine("1- To Do");
+                        Console.WriteLine("2- In Progress");
+                        string choice = Console.ReadLine();
+                        if (choice == "1")
+                        {
+
+                            Board.ToDoList.Add(card);
+                            Board.DoneList.Remove(card);
+                            Console.WriteLine("You have successfully moved card to To Do List");
+                        }
+                        else if (choice == "2")
+                        {
+                            Board.InProgressList.Add(card);
+                            Board.DoneList.Remove(card);
+                            Console.WriteLine("You have successfully moved card to In Progress List");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have performed an incorrect operation.");
+                            Program.StartApplication();
+                        }
+                    }
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("No result is found with the provided header! Please select an option to continue.");
+                Console.WriteLine("1- Abort move progress");
+                Console.WriteLine("2- Try again");
+                string choice = Console.ReadLine();
+                if (choice == "1")
+                {
+                    Program.StartApplication();
+                }
+                else
+                {
+                    Move();
+                }
+            }
+            Program.StartApplication();
+        }
+        public static void PrintCard(Card card)
+        {
+            Console.WriteLine("Below card is found!");
+            Console.WriteLine(" **************************************");
+            Console.WriteLine("Header       :{0}", card.Header);
+            Console.WriteLine("Content      :{0}", card.Content);
+            Console.WriteLine("Assigned to  :{0}", card.Member);
+            Console.WriteLine("Size         :{0}", card.Size);
+        }
     }
 }

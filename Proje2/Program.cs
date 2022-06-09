@@ -55,7 +55,7 @@ namespace Proje2
                     CardOperation.Delete();
                     break;
                 case "4":
-                    //CardOperation.Move();
+                    CardOperation.Move();
                     break;
             }
         }
