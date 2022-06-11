@@ -37,6 +37,8 @@ namespace Proje2
             Console.WriteLine("(2) Add a card to the board");
             Console.WriteLine("(3) Delete a cart from the board");
             Console.WriteLine("(4) Move a cart");
+            Console.WriteLine("(5) Update a cart");
+            Console.WriteLine("(6) Exit");
 
             string option = Console.ReadLine();
 
@@ -56,6 +58,12 @@ namespace Proje2
                     break;
                 case "4":
                     CardOperation.Move();
+                    break;
+                case "5":
+                    CardOperation.Update();
+                    break;
+                case "6":
+                    CardOperation.Exit();
                     break;
             }
         }

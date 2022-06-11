@@ -12,11 +12,7 @@ namespace Proje2
             {
                 foreach (var card in Board.ToDoList)
                 {
-                    Console.WriteLine(card.Header);
-                    Console.WriteLine(card.Content);
-                    Console.WriteLine(card.Member);
-                    Console.WriteLine(card.Size);
-                    Console.WriteLine("-");
+                    PrintCard(card);
                 }
             }
             else
@@ -31,11 +27,7 @@ namespace Proje2
             {
                 foreach (var card in Board.InProgressList)
                 {
-                    Console.WriteLine(card.Header);
-                    Console.WriteLine(card.Content);
-                    Console.WriteLine(card.Member);
-                    Console.WriteLine(card.Size);
-                    Console.WriteLine("-");
+                    PrintCard(card);
                 }
             }
             else
@@ -49,11 +41,7 @@ namespace Proje2
             {
                 foreach (var card in Board.DoneList)
                 {
-                    Console.WriteLine(card.Header);
-                    Console.WriteLine(card.Content);
-                    Console.WriteLine(card.Member);
-                    Console.WriteLine(card.Size);
-                    Console.WriteLine("-");
+                    PrintCard(card);
                 }
             }
             else
@@ -78,7 +66,6 @@ namespace Proje2
             int size = Int32.Parse(Console.ReadLine());
 
             Card newCard = new Card(header, contents, memberId, size);
-            Console.WriteLine(newCard);
 
             Board.ToDoList.Add(newCard);
 
@@ -259,14 +246,115 @@ namespace Proje2
             }
             Program.StartApplication();
         }
+        public static void Update()
+        {
+            Console.WriteLine("Please provide card header to update!");
+
+            string header = Console.ReadLine();
+            bool found = false;
+            foreach (var card in Board.ToDoList.ToArray())
+            {
+                if (card.Header == header)
+                {
+                    found = true;
+                    PrintCard(card);
+                    Console.WriteLine("Kindly provide new hard content!");
+                    string content = Console.ReadLine();
+                    try
+                    {
+                        Board.ToDoList.Remove(card);
+                        card.Content = content;
+                        Board.ToDoList.Add(card);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("An error occured!");
+                    }
+                    Console.WriteLine("You have successfully updated your card!");
+                    break;
+                }
+            }
+            if (!found)
+            {
+                foreach (var card in Board.InProgressList.ToArray())
+                {
+                    if (card.Header == header)
+                    {
+                        found = true;
+                        PrintCard(card);
+                        Console.WriteLine("Kindly provide new hard content!");
+                        string content = Console.ReadLine();
+                        try
+                        {
+                            Board.InProgressList.Remove(card);
+                            card.Content = content;
+                            Board.InProgressList.Add(card);
+                        }
+                        catch
+                        {
+                            Console.WriteLine("An error occured!");
+                        }
+                        Console.WriteLine("You have successfully updated your card!");
+                        break;
+                    }
+                }
+            }
+            if (!found)
+            {
+                foreach (var card in Board.DoneList.ToArray())
+                {
+                    if (card.Header == header)
+                    {
+                        found = true;
+                        PrintCard(card);
+                        Console.WriteLine("Kindly provide new hard content!");
+                        string content = Console.ReadLine();
+                        try
+                        {
+                            Board.DoneList.Remove(card);
+                            card.Content = content;
+                            Board.DoneList.Add(card);
+                        }
+                        catch
+                        {
+                            Console.WriteLine("An error occured!");
+                        }
+                        Console.WriteLine("You have successfully updated your card!");
+                        break;
+                    }
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("No result is found with the provided header! Please select an option to continue.");
+                Console.WriteLine("1- Abort move progress");
+                Console.WriteLine("2- Try again");
+                string choice = Console.ReadLine();
+                if (choice == "1")
+                {
+                    Program.StartApplication();
+                }
+                else
+                {
+                    Update();
+                }
+            }
+            Program.StartApplication();
+        }
         public static void PrintCard(Card card)
         {
-            Console.WriteLine("Below card is found!");
+            Console.WriteLine("Card Information is below!");
             Console.WriteLine(" **************************************");
             Console.WriteLine("Header       :{0}", card.Header);
             Console.WriteLine("Content      :{0}", card.Content);
             Console.WriteLine("Assigned to  :{0}", card.Member);
             Console.WriteLine("Size         :{0}", card.Size);
+            Console.WriteLine(" **************************************");
+        }
+        public static void Exit()
+        {
+            System.Environment.Exit(0);
         }
     }
 }
